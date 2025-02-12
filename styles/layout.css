@@ -1,0 +1,91 @@
+:root {
+  --navbar-bg-start: #444;
+  --navbar-bg-end: #222;
+  --navbar-link-color: white;
+  --navbar-link-hover-color: #f5a623;
+  --navbar-link-padding: 12px 20px;
+  --navbar-font-size: 1.2rem;
+  --navbar-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --section-padding: 60px 20px;
+  --navbar-size: 80px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+nav {
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--navbar-bg-start),
+    var(--navbar-bg-end)
+  );
+  height: var(--navbar-size);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--navbar-shadow);
+  z-index: 1000;
+}
+
+nav a {
+  color: var(--navbar-link-color);
+  text-decoration: none;
+  padding: var(--navbar-link-padding);
+  font-size: var(--navbar-font-size);
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  width: 0%;
+  background: var(--navbar-link-color);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--navbar-link-hover-color);
+  transform: translateY(-3px);
+}
+
+nav a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: var(--navbar-size);
+}
+
+#hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: calc(100vh - var(--navbar-size));
+  width: 100%;
+  position: relative;
+  background: url("/images/hero.png") center/cover no-repeat;
+}
+
+section {
+  padding: var(--section-padding);
+}

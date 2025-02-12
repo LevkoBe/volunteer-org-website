@@ -1,0 +1,29 @@
+h1,
+h2 {
+  color: #333;
+  text-align: center;
+}
+
+p {
+  font-size: 16px;
+  text-align: center;
+  color: #666;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: white;
+  text-align: center;
+  text-shadow: 3px 3px 0px black, 6px 6px 5px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+  font-size: 2rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  margin-top: 10px;
+}
