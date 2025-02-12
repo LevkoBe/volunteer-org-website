@@ -6,7 +6,7 @@ function loadGalleryImages() {
   const apiUrl = "https://picsum.photos/300/200"; // Random image API (Lorem Picsum)
   let imagesHTML = "";
 
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 8; i++) {
     // Fetch 6 random images
     imagesHTML += `<div class="gallery-item">
                      <a href="#" class="lightbox-trigger">

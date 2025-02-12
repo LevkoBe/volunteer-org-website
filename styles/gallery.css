@@ -12,17 +12,22 @@
   height: 200px;
   overflow: hidden;
   cursor: pointer;
+  border: 4px solid #ddd; /* Thicker border */
+  border-radius: 12px; /* Round corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 12px; /* Round corners for image */
   transition: transform 0.3s ease-in-out;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Zoom effect */
 }
 
 .description {
@@ -34,10 +39,14 @@
   color: white;
   padding: 10px;
   display: none;
+  border-bottom-left-radius: 12px; /* Round bottom corners of description */
+  border-bottom-right-radius: 12px; /* Round bottom corners of description */
 }
 
 .gallery-item:hover .description {
   display: block;
+  background: rgba(0, 0, 0, 0.9); /* Darker background on hover */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow on hover */
 }
 
 /* Video Gallery Styling */
@@ -52,36 +61,12 @@
   width: 480px;
   height: 270px;
   overflow: hidden;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px; /* Round corners for video container */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .video-item iframe {
   width: 100%;
   height: 100%;
-}
-
-/* Slideshow/Carousel */
-.carousel {
-  margin-top: 40px;
-  position: relative;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.carousel-item {
-  display: none;
-  width: 100%;
-  text-align: center;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: auto;
-}
-
-.carousel .active {
-  display: block;
+  border-radius: 12px; /* Round corners for embedded iframe */
 }

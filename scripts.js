@@ -19,6 +19,7 @@ sections.forEach((section) => {
       // Load images dynamically for the gallery section
       if (section === "gallery") {
         loadGalleryImages();
+        loadVideos();
       }
     })
     .catch((error) => console.log(`Error loading ${section}:`, error));
