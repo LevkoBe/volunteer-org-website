@@ -1,5 +1,5 @@
 const sections = [
-  "hero",
+  // "hero",
   "about",
   "activities",
   "events",
