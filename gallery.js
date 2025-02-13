@@ -5,11 +5,15 @@ function loadGalleryImages(selectorId) {
   );
 
   let imagesHTML = "";
-  for (let i = 0; i < 10; i++) {
+  let startingIndex = Math.random();
+  for (let i = startingIndex; i < startingIndex + 10; i++) {
     imagesHTML += `<img src="https://picsum.photos/300/200?random=${i}" alt="Random Image ${i}" />`;
   }
 
   container.innerHTML = imagesHTML + imagesHTML;
+
+  const randomScroll = Math.random() * (container.scrollWidth / 2);
+  container.scrollLeft = randomScroll;
 
   function checkScroll() {
     if (container.scrollLeft >= container.scrollWidth / 2) {
@@ -19,6 +23,13 @@ function loadGalleryImages(selectorId) {
     }
     requestAnimationFrame(checkScroll);
   }
+
+  function autoScroll() {
+    container.scrollLeft += 1;
+    requestAnimationFrame(autoScroll);
+  }
+
+  autoScroll();
 
   checkScroll();
 }
