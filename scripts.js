@@ -16,9 +16,9 @@ sections.forEach((section) => {
     .then((html) => {
       document.getElementById(section).innerHTML = html;
 
-      // Load images dynamically for the gallery section
       if (section === "gallery") {
-        loadGalleryImages();
+        loadGalleryImages("n1");
+        loadGalleryImages("n2");
         loadVideos();
       }
     })

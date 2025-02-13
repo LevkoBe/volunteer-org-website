@@ -1,55 +1,45 @@
-// Function to load random gallery images
-function loadGalleryImages() {
-  const galleryContainer = document.getElementById("gallery-images");
-  if (!galleryContainer) return;
+function loadGalleryImages(selectorId) {
+  console.log("Loading images for selectorId: ", selectorId);
+  const container = document.querySelector(
+    `#${selectorId}.images-scroll-container`
+  );
 
-  const apiUrl = "https://picsum.photos/300/200"; // Random image API (Lorem Picsum)
   let imagesHTML = "";
-
-  for (let i = 0; i < 8; i++) {
-    // Fetch 6 random images
-    imagesHTML += `<div class="gallery-item">
-                     <a href="#" class="lightbox-trigger">
-                       <img src="${apiUrl}?random=${i}" alt="Random Image ${
-      i + 1
-    }">
-                     </a>
-                     <div class="description">
-                       <p>Description for Image ${i + 1}</p>
-                     </div>
-                   </div>`;
+  for (let i = 0; i < 10; i++) {
+    imagesHTML += `<img src="https://picsum.photos/300/200?random=${i}" alt="Random Image ${i}" />`;
   }
 
-  galleryContainer.innerHTML = imagesHTML;
+  container.innerHTML = imagesHTML + imagesHTML;
+
+  function checkScroll() {
+    if (container.scrollLeft >= container.scrollWidth / 2) {
+      container.style.scrollBehavior = "auto";
+      container.scrollLeft -= container.scrollWidth / 2;
+      container.style.scrollBehavior = "smooth";
+    }
+    requestAnimationFrame(checkScroll);
+  }
+
+  checkScroll();
 }
 
-const videoLinks = [
-  "https://www.youtube.com/embed/2szQhR4oZtA",
-  "https://www.youtube.com/embed/ymcflrj_rRc",
-  "https://www.youtube.com/embed/jbV1TDZQAFc",
-];
-
-// Function to load embedded videos dynamically
 function loadVideos() {
   const videoContainer = document.getElementById("video-gallery");
   if (!videoContainer) return;
 
+  const videoLinks = [
+    "https://www.youtube.com/embed/2szQhR4oZtA",
+    "https://www.youtube.com/embed/ymcflrj_rRc",
+    "https://www.youtube.com/embed/jbV1TDZQAFc",
+  ];
+
   let videoHTML = "";
 
-  // Loop through the array and create iframe embeds
   videoLinks.forEach((link) => {
     videoHTML += `<div class="video-item">
-                    <div class="embed-container">
                       <iframe src="${link}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
                   </div>`;
   });
 
   videoContainer.innerHTML = videoHTML;
 }
-
-// Load images and videos when the page is ready
-document.addEventListener("DOMContentLoaded", () => {
-  loadGalleryImages();
-  loadVideos();
-});
