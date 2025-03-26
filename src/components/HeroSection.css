@@ -15,6 +15,9 @@
 
 .hero-content {
   max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   z-index: 2; /* Ensure content stays above the background image */
   color: white; /* Adjust text color for visibility on top of the image */
 }
@@ -29,6 +32,14 @@
   font-size: 1.5rem;
   color: var(--text-color);
   margin-top: 10px;
+}
+
+.title,
+.subtitle {
+  background-color: #121212aa;
+  width: fit-content;
+  padding: 5px;
+  border-radius: 10px;
 }
 
 .cta-button {
