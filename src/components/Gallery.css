@@ -1,0 +1,27 @@
+.gallery-container {
+  width: 99%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.images-scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 15px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding: 7px;
+}
+
+.images-scroll-container img {
+  border-radius: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.images-scroll-container img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
