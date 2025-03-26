@@ -6,7 +6,6 @@ const imageCount = 10;
 const Gallery: React.FC = () => {
   const imageContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // Generate image URLs
   const images = [];
   const startingIndex = Math.floor(Math.random() * 1000);
 
@@ -21,10 +20,9 @@ const Gallery: React.FC = () => {
     );
   }
 
-  // Ensure unique keys in duplicated array
   const imagesToRender = [
     ...images,
-    ...images.map((img, i) => <img {...img.props} key={`${img.key}-copy`} />),
+    ...images.map((img) => <img {...img.props} key={`${img.key}-copy`} />),
   ];
 
   useEffect(() => {
@@ -32,15 +30,20 @@ const Gallery: React.FC = () => {
     if (!container) return;
 
     const handleScroll = () => {
-      const { scrollLeft, offsetWidth, scrollWidth } = container;
-      const halfWidth = scrollWidth / 2;
+      const { scrollLeft, scrollWidth } = container;
+      const quarterWidth = scrollWidth / 4;
 
-      if (scrollLeft > halfWidth) {
-        // Temporarily disable smooth scrolling
+      if (scrollLeft < quarterWidth) {
         container.style.scrollBehavior = "auto";
-        container.scrollLeft -= halfWidth;
+        container.scrollLeft += 2 * quarterWidth;
 
-        // Restore smooth scrolling after reset
+        setTimeout(() => {
+          container.style.scrollBehavior = "smooth";
+        }, 100);
+      } else if (scrollLeft > 3 * quarterWidth) {
+        container.style.scrollBehavior = "auto";
+        container.scrollLeft -= 2 * quarterWidth;
+
         setTimeout(() => {
           container.style.scrollBehavior = "smooth";
         }, 100);
