@@ -1,0 +1,36 @@
+#hero {
+  width: 100%;
+  height: calc(100vh - 60px); /* Takes full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-image: url("public/logo.svg"); /* Path to your local image */
+  background-size: contain; /* Ensure the image scales to fit without breaking proportions */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+}
+
+.hero-content {
+  max-width: 80%;
+  z-index: 2; /* Ensure content stays above the background image */
+  color: white; /* Adjust text color for visibility on top of the image */
+}
+
+.title {
+  font-size: 5rem;
+  color: var(--accent-color);
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-color);
+  margin-top: 10px;
+}
+
+.cta-button {
+  margin-top: 20px;
+}
